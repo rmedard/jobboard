@@ -1,5 +1,8 @@
 package com.sic.jobboard.model;
 
+import com.sic.jobboard.util.Coordinate;
+import com.sic.jobboard.util.CoordinateConverter;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -23,6 +26,11 @@ public class Job extends Auditable<String> {
 
 	@Lob
 	private String description;
+
+	@Convert(converter = CoordinateConverter.class)
+	private Coordinate creatorLocation;
+
+	private boolean published;
 
 	public long getId() {
 		return id;
@@ -62,5 +70,21 @@ public class Job extends Auditable<String> {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Coordinate getCreatorLocation() {
+		return creatorLocation;
+	}
+
+	public void setCreatorLocation(Coordinate creatorLocation) {
+		this.creatorLocation = creatorLocation;
+	}
+
+	public boolean isPublished() {
+		return published;
+	}
+
+	public void setPublished(boolean published) {
+		this.published = published;
 	}
 }

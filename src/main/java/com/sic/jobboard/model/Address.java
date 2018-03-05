@@ -1,6 +1,8 @@
 package com.sic.jobboard.model;
 
 import com.sic.jobboard.model.type.CountryType;
+import com.sic.jobboard.util.Coordinate;
+import com.sic.jobboard.util.CoordinateConverter;
 
 import javax.persistence.*;
 
@@ -14,6 +16,9 @@ public class Address extends Auditable<String> {
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, name = "country")
 	private CountryType country;
+
+	@Convert(converter = CoordinateConverter.class)
+	private Coordinate coordinate;
 
 	public long getId() {
 		return id;
