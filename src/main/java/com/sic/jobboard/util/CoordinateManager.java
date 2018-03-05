@@ -35,11 +35,7 @@ public class CoordinateManager {
 	 * @return         true if, and only if, the latitude is within the MIN and MAX latitude
 	 */
 	public static boolean isValidLatitude(float latitude) {
-		if(latitude >= MIN_LATITUDE && latitude <= MAX_LATITUDE) {
-			return true;
-		} else {
-			return false;
-		}
+		return latitude >= MIN_LATITUDE && latitude <= MAX_LATITUDE;
 	}
 
 	/**
@@ -50,11 +46,7 @@ public class CoordinateManager {
 	 * @return          true if, and only if, the longitude is between the MIN and MAX longitude
 	 */
 	public static boolean isValidLongitude(float longitude) {
-		if(longitude >= MIN_LONGITUDE && longitude <= MAX_LONGITUDE) {
-			return true;
-		} else {
-			return false;
-		}
+		return longitude >= MIN_LONGITUDE && longitude <= MAX_LONGITUDE;
 	}
 
 	/**
@@ -68,7 +60,7 @@ public class CoordinateManager {
 	}
 
 	/**
-	 * A private method to caluclate the longitude constant
+	 * A private method to calculate the longitude constant
 	 *
 	 * @param latitude  a latitude coordinate in decimal notation
 	 *
