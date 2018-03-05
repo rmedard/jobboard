@@ -20,4 +20,47 @@ public class Job extends Auditable<String> {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date expirationDate;
+
+	@Lob
+	private String description;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Employer getEmployer() {
+		return employer;
+	}
+
+	public void setEmployer(Employer employer) {
+		this.employer = employer;
+	}
+
+	public Set<JobApplication> getJobApplications() {
+		return jobApplications;
+	}
+
+	public void setJobApplications(Set<JobApplication> jobApplications) {
+		this.jobApplications = jobApplications;
+	}
+
+	public Date getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(Date expirationDate) {
+		this.expirationDate = expirationDate;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }
