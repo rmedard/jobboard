@@ -2,13 +2,16 @@ package com.sic.jobboard.model;
 
 import com.sic.jobboard.util.Coordinate;
 import com.sic.jobboard.util.CoordinateConverter;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
+@Audited
 @Entity
-public class Job extends Auditable<String> {
+public class Job {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +22,7 @@ public class Job extends Auditable<String> {
 	private Employer employer;
 
 	@OneToMany(mappedBy = "job")
+	@NotAudited
 	private Set<JobApplication> jobApplications;
 
 	@Temporal(TemporalType.TIMESTAMP)

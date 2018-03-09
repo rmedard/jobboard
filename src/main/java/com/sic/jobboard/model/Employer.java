@@ -1,10 +1,14 @@
 package com.sic.jobboard.model;
 
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Employer extends Auditable<String> {
+@Audited
+public class Employer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,6 +18,7 @@ public class Employer extends Auditable<String> {
 	private Set<Job> jobs;
 
 	@OneToOne
+	@NotAudited
 	private Address address;
 
 	private String primaryEmail;
