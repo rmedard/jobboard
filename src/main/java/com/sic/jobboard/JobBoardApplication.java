@@ -20,13 +20,16 @@ public class JobBoardApplication {
 
 	@Bean
 	InitializingBean createInitData(){
-		Role adminRole = new Role();
-		adminRole.setName("ADMIN");
-		Role userRole = new Role();
-		userRole.setName("USER");
-		return () -> {
-			rolesRepository.save(adminRole);
-			rolesRepository.save(userRole);
-		};
+		if (rolesRepository.findAll().isEmpty()){
+			Role adminRole = new Role();
+			adminRole.setName("ADMIN");
+			Role userRole = new Role();
+			userRole.setName("USER");
+			return () -> {
+				rolesRepository.save(adminRole);
+				rolesRepository.save(userRole);
+			};
+		}
+		return null;
 	}
 }
